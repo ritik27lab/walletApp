@@ -1,14 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import walletStore from './src/mobxStore/walletStore';
+
+import {Provider} from 'mobx-react';
+
+import {
+  createNavigationContainerRef,
+  NavigationContainer,
+} from '@react-navigation/native';
+import AppNavigator from './src/navigation/AppNavigator';
+
+
 
 export default function App() {
+
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider walletStore={walletStore}>
+      <NavigationContainer ref={navigationRef}>
+        <AppNavigator colorScheme={'light'} />
+      </NavigationContainer>
+    </Provider>
   );
 }
+
+export const navigationRef = createNavigationContainerRef();
 
 const styles = StyleSheet.create({
   container: {
