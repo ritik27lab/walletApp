@@ -146,7 +146,7 @@ export const HomeScreen = observer(() => {
             </Text>
           </TouchableOpacity>
         </View>
-        <Modal
+        {/* <Modal
           visible={isModalVisible}
           transparent={true}
           animationType="slide"
@@ -175,7 +175,7 @@ export const HomeScreen = observer(() => {
               )}
             />
           </View>
-        </Modal>
+        </Modal> */}
       </View>
     </View>
   );
